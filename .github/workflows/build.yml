@@ -9,6 +9,10 @@ on:
       - main
       - master
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   check-latest-version:
     runs-on: ubuntu-latest
