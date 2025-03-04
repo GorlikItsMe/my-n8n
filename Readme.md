@@ -2,10 +2,26 @@
 
 n8n with extra libs
 
-## Extra libs
+## Extra
+
+### Libs
 
 * yt-dlp
 * ffmpeg
+
+### npm 
+
+* moment
+* axios
+* node-fetch
+* bcrypt
+* body-parser
+
+### build in node modules
+
+* crypto
+* fs
+
 You can check it in Dockerfile
 
 ## Commands

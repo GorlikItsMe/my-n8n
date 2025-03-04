@@ -13,3 +13,4 @@ RUN npm install -g moment axios node-fetch bcrypt body-parser
 USER node
 ENV NODE_FUNCTION_ALLOW_EXTERNAL=moment,axios,node-fetch,bcrypt,body-parser
 # ENV NODE_FUNCTION_ALLOW_EXTERNAL=*
+ENV NODE_FUNCTION_ALLOW_BUILTIN=crypto,fs
