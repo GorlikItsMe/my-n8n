@@ -2,6 +2,16 @@
 
 n8n with extra libs
 
+## Extra libs
+
+* yt-dlp
+* ffmpeg
+You can check it in Dockerfile
+
+## Commands
+
+Usefull for testing
+
 ```bash
 # Build
 docker build -t my-n8n:latest .
@@ -17,5 +27,6 @@ docker run -it --rm \
 ```
 
 Read more:
-* https://docs.n8n.io/hosting/installation/docker/
-* https://github.com/n8n-io/n8n/blob/master/docker/images/n8n-custom/Dockerfile
+
+* <https://docs.n8n.io/hosting/installation/docker/>
+* <https://github.com/n8n-io/n8n/blob/master/docker/images/n8n-custom/Dockerfile>
