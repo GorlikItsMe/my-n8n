@@ -8,7 +8,7 @@ USER root
 RUN apk update && apk add ffmpeg
 
 # Install latest yt-dlp
-RUN wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux -O /usr/bin/yt-dlp
+RUN wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux -O /usr/bin/yt-dlp && chmod +x /usr/bin/yt-dlp
 
 
 # Install node.js libs
