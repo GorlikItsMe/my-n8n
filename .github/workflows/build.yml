@@ -26,7 +26,7 @@ jobs:
           VERSION=$(curl -sS https://api.github.com/repos/n8n-io/n8n/releases/latest | jq -r '.tag_name | sub("^n8n@"; "")')
           echo "Latest n8n version: $VERSION"
           echo "version=$VERSION" >> $GITHUB_ENV
-          run: echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Check for n8n updates
         id: check_update
@@ -35,10 +35,10 @@ jobs:
           echo "Current version: $CURRENT_VERSION"
           if [[ "$CURRENT_VERSION" != "$VERSION" ]]; then
             echo "Found new version! building new image..."
-            run: echo "should_build=true" >> $GITHUB_OUTPUT
+            echo "should_build=true" >> $GITHUB_OUTPUT
           else
             echo "No new version."
-            run: echo "should_build=false" >> $GITHUB_OUTPUT
+            echo "should_build=false" >> $GITHUB_OUTPUT
           fi
 
   build-and-push:
