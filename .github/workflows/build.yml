@@ -30,8 +30,13 @@ jobs:
 
       - name: Check for n8n updates
         id: check_update
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          CURRENT_VERSION=$(curl -sS https://api.github.com/user/packages/container/n8n/versions | jq -r '.tags[0]')
+          CURRENT_VERSION=$(curl -sS \
+            -H "Authorization: Bearer $GITHUB_TOKEN" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/user/packages/container/n8n/versions | jq -r '.metadata.container.tags[0]')
           echo "Current version: $CURRENT_VERSION"
           if [[ "$CURRENT_VERSION" != "$VERSION" ]]; then
             echo "Found new version! building new image..."
