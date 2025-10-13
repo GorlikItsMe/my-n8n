@@ -38,7 +38,8 @@ jobs:
             -H "Accept: application/vnd.github.v3+json" \
             https://api.github.com/user/packages/container/n8n/versions | jq -r '.[0].metadata.container.tags[0]')
           echo "Current version: $CURRENT_VERSION"
-          if [[ "$CURRENT_VERSION" != "$VERSION" ]]; then
+          echo "n8n version: $version"
+          if [[ "$CURRENT_VERSION" != "$version" ]]; then
             echo "Found new version! building new image..."
             echo "should_build=true" >> $GITHUB_OUTPUT
           else
