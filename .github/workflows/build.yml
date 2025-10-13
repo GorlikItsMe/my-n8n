@@ -31,7 +31,7 @@ jobs:
       - name: Check for n8n updates
         id: check_update
         run: |
-          CURRENT_VERSION=$(curl -sS https://ghcr.io/v2/gorlikitsme/n8n/tags/list | jq -r '.tags[-1]')
+          CURRENT_VERSION=$(curl -sS https://api.github.com/user/packages/container/n8n/versions | jq -r '.tags[0]')
           echo "Current version: $CURRENT_VERSION"
           if [[ "$CURRENT_VERSION" != "$VERSION" ]]; then
             echo "Found new version! building new image..."
